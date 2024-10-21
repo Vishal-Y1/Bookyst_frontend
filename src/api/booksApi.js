@@ -2,7 +2,7 @@ import axios from "axios";
 
 const booksApi = axios.create({
   // baseURL: "http://localhost:3344/api/books",
-  baseURL: "https://bookyst-backend-nrsc.vercel.app/api/books",
+  baseURL: "https://bookyst-backend-l6ij.vercel.app/api/books",
 });
 
 export const getAllBooks = async () => {
