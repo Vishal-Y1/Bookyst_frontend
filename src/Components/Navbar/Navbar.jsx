@@ -71,7 +71,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex justify-between px-[15rem] items-center border-b border-b-red-800 border-gray-100 p-4 h-auto ">
+    <div className="flex justify-between px-[15rem] items-center shadow-md h-[79px] fixed left-0 right-0 top-0 z-50 bg-slate-50 p-4  ">
       <Link to="/">
         <h1 className="font-bold text-xl">Vishal Yadav - Booksyst</h1>
       </Link>

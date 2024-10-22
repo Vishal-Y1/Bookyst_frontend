@@ -32,7 +32,7 @@ const Home = () => {
     //   </div>
     // </div>
 
-    <div className="grid grid-cols-4 mt-10  gap-6">
+    <div className="grid grid-cols-4 gap-6 mt-10">
       {books?.map((b) => (
         <Card key={b._id} book={b} />
       ))}

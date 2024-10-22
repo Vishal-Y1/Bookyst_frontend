@@ -45,7 +45,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <main className=" flex min-h-screen  justify-center py-5">
+      <main className="flex py-5 pt-20 justify-center min-h-screen">
         <Outlet />
       </main>
       <Footer />
