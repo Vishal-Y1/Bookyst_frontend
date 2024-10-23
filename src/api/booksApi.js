@@ -15,7 +15,8 @@ export const getBook = async (id) => {
   return response.data;
 };
 export const addBook = async (book) => {
-  return await booksApi.post("/add", book);
+  const response = await booksApi.post("/add", book);
+  return response.data;
 };
 
 export const search = async (q) => {

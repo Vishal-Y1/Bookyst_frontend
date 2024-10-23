@@ -39,8 +39,8 @@ const Addbook = () => {
     try {
       // const res = await axios.post("/api/books/add", bookData);
       const response = await addBook(formData);
-      console.log(response.data);
-      // window.location.reload();
+      console.log(response);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -139,6 +139,7 @@ const Addbook = () => {
               setFormData({ ...formData, discount: e.target.value })
             }
           />
+
           <div className="checkbox flex items-center gap-2">
             <input
               type="checkbox"

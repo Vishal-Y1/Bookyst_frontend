@@ -22,7 +22,7 @@ const Login = () => {
         alert("Token has been saved.");
       }
       if (res) {
-        navigate("/admin/dashboard");
+        navigate("/admin/add-new");
       }
     } catch (error) {
       console.log(error);
