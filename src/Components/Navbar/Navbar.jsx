@@ -180,6 +180,7 @@ const Navbar = () => {
           Admin
         </button>
       </Link>
+      <Link to={"/add"}> B</Link>
     </div>
   );
 };
