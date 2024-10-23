@@ -14,9 +14,9 @@ export const getBook = async (id) => {
   const response = await booksApi.get(`/find/${id}`);
   return response.data;
 };
-// export const addBook = async (book) => {
-//   return await booksApi.post("/add", book);
-// };
+export const addBook = async (book) => {
+  return await booksApi.post("/add", book);
+};
 
 export const search = async (q) => {
   const response = await booksApi.get(`/search?q=${q}`);

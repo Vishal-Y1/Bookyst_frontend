@@ -2,6 +2,7 @@ import axios from "axios";
 
 const authApi = axios.create({
   baseURL: "https://bookyst-backend-l6ij.vercel.app/api/auth",
+  withCredentials: true,
 });
 
 export const signIn = async (user) => {
