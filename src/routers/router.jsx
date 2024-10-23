@@ -44,10 +44,6 @@ const router = createBrowserRouter([
         path: "/auth/signup",
         element: <SignUp />,
       },
-      {
-        path: "/admintst",
-        element: <AdminDashboardPage />,
-      },
     ],
   },
   {
@@ -72,10 +68,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/dashboard",
-  //   element: <div>Hello dashboard</div>,
-  // },
 ]);
 
 export default router;
