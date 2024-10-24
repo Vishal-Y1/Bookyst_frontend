@@ -8,9 +8,7 @@ import Auth from "../Pages/AuthPage";
 import SignUp from "../Components/Auth/SignUp";
 import AdminDashboardPage from "../Pages/AdminDashboard";
 import Dashboard from "../Components/AdminComponents/Dashboard";
-import Admin from "../Components/AdminComponents/AdminLogin";
 import AddNewBook from "../Components/AdminComponents/AddNewBook";
-import NewBook from "../Components/AddBook/NewBook";
 import ManageBooks from "../Components/AdminComponents/ManageBooks";
 import AdminLogin from "../Components/AdminComponents/AdminLogin";
 
