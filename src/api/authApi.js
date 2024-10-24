@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const authApi = axios.create({
-  baseURL: "http://localhost:3344/api/auth",
-  // baseURL: "https://bookyst-backend-l6ij.vercel.app/api/auth",
+  // baseURL: "http://localhost:3344/api/auth",
+  baseURL: "https://bookyst-backend-l6ij.vercel.app/api/auth",
   withCredentials: true,
 });
 
