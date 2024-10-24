@@ -3,13 +3,10 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import app from "../../firebase";
 
 import { addBook } from "../../api/booksApi";
-import axios from "axios";
 
 const Addbook = () => {
   const [uploading, setUploading] = useState(false);
-  const [inStock, setInStock] = useState(false);
   const [imgUrl, setImgUrl] = useState("");
-  const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({});
 
@@ -174,29 +171,6 @@ const Addbook = () => {
             {uploading ? "Publishing" : "Publish"}
           </button>
         </form>
-
-        {/* <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
-          <div>
-            <input
-              accept="image/*"
-              name="image"
-              id="image"
-              type="file"
-              // onChange={(e) => setFile(e.target.files[0])}
-              onChange={handleChange}
-            />
-            <button
-              className="bg-blue-400 px-5 py-2 rounded-md"
-              disabled={uploading}
-              onClick={handleChange}
-            >
-              {uploading ? "Uploading" : "Upload"}
-            </button>
-          </div>
-          <button type="submit" className="bg-red-400 px-5 py-2">
-            Publish
-          </button>
-        </form> */}
         {imgUrl && <img src={imgUrl} />}
       </div>
     </>
