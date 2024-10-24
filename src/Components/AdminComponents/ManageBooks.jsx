@@ -2,7 +2,7 @@ import React from "react";
 
 import { FaPlus, FaPen } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Table from "./table";
+import Table from "../AdminComponents/Table";
 
 const ManageBooks = () => {
   return (
