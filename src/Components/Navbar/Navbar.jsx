@@ -175,12 +175,6 @@ const Navbar = () => {
           Sign in
         </button>
       </Link>
-      <Link to={"/admin"}>
-        <button className="border-2 bg-white border-gray-300 rounded-lg  px-5 py-2 text-sm">
-          Admin
-        </button>
-      </Link>
-      <Link to={"/add"}> B</Link>
     </div>
   );
 };
