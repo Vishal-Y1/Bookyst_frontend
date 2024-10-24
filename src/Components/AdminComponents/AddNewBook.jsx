@@ -48,7 +48,7 @@ const Addbook = () => {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col justify-center items-center w-full ">
+      <div className="min-h-screen flex flex-col justify-center items-center w-full bg-slate-900">
         <h1 className="text-3xl mb-10">Add New Book</h1>
         <form
           className="flex flex-col gap-5  w-1/2 p-10"
@@ -151,7 +151,7 @@ const Addbook = () => {
               }
               className="size-6 p-3 outline-none "
             />
-            <label htmlFor="stock" className="text-lg font-semibold">
+            <label htmlFor="stock" className="text-lg font-semibold text-white">
               In Stock
             </label>
           </div>
@@ -163,6 +163,7 @@ const Addbook = () => {
             id="image"
             // onChange={(e) => setFile(e.target.files[0])}
             onChange={handleChange}
+            className="text-white"
           />
 
           <button

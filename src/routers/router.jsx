@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         element: <AddNewBook />,
       },
       {
-        path: "/admin/manage-books",
+        path: "/admin/inventory",
         element: <ManageBooks />,
       },
     ],

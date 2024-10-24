@@ -24,4 +24,12 @@ export const search = async (q) => {
   return response.data;
 };
 
+export const deleteBook = async ({ id }) => {
+  return await booksApi.delete(`/delete/${id}`, id);
+};
+
+export const updateBook = async (book) => {
+  return await booksApi.put(`/update/${book._id}`);
+};
+
 export default booksApi;
