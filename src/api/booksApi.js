@@ -1,4 +1,8 @@
 import axios from "axios";
+import app from "../firebase";
+import { deleteObject, getStorage, ref } from "firebase/storage";
+
+const storage = getStorage(app);
 
 const booksApi = axios.create({
   baseURL: "https://bookyst-backend-l6ij.vercel.app/api/books",
@@ -24,9 +28,17 @@ export const search = async (q) => {
   return response.data;
 };
 
-export const deleteBook = async ({ id }) => {
-  return await booksApi.delete(`/delete/${id}`, id);
+export const deleteBook = async (book) => {
+  const deleteFunc = await booksApi.delete(`/delete/${book._id}`, book._id);
+  if (deleteFunc) {
+    deleteObject(ref(storage, book.image));
+    console.log("book image deleted");
+  }
+  return deleteFunc;
 };
+// export const deleteBook = async ({ id }) => {
+//   return await booksApi.delete(`/delete/${id}`, id);
+// };
 
 export const updateBook = async (book) => {
   return await booksApi.put(`/update/${book._id}`);
