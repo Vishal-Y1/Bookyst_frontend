@@ -1,21 +1,42 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import Home from "../Pages/Home";
-import Search from "../Components/Search/Search";
-import Login from "../Components/Auth/Login";
-import Book from "../Components/singleBook/Book";
-import Auth from "../Pages/AuthPage";
-import SignUp from "../Components/Auth/SignUp";
-import AdminDashboardPage from "../Pages/AdminDashboard";
-import Dashboard from "../Components/AdminComponents/Dashboard";
-import AddNewBook from "../Components/AdminComponents/AddNewBook";
-import ManageBooks from "../Components/AdminComponents/ManageBooks";
-import AdminLogin from "../Components/AdminComponents/AdminLogin";
+
+//*Main Imports
+const App = lazy(() => import("../App"));
+const Home = lazy(() => import("../Pages/Home"));
+const Search = lazy(() => import("../Components/Search/Search"));
+const Book = lazy(() => import("../Components/singleBook/Book"));
+
+//*Auth Imports
+const Auth = lazy(() => import("../Pages/AuthPage"));
+const Login = lazy(() => import("../Components/Auth/Login"));
+const SignUp = lazy(() => import("../Components/Auth/SignUp"));
+
+//* Admin Imports
+const AdminDashboardPage = lazy(() => import("../Pages/AdminDashboard"));
+const Dashboard = lazy(() => import("../Components/AdminComponents/Dashboard"));
+const AddNewBook = lazy(() =>
+  import("../Components/AdminComponents/AddNewBook")
+);
+const ManageBooks = lazy(() =>
+  import("../Components/AdminComponents/ManageBooks")
+);
+const AdminLogin = lazy(() =>
+  import("../Components/AdminComponents/AdminLogin")
+);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Suspense
+        fallback={
+          <div className="text-4xl text-green-600">Main Loading...</div>
+        }
+      >
+        <App />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
@@ -47,7 +68,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminDashboardPage />,
+    element: (
+      <Suspense
+        fallback={<div className="text-4xl text-red-600">Loading....</div>}
+      >
+        <AdminDashboardPage />
+      </Suspense>
+    ),
     children: [
       {
         path: "/admin",

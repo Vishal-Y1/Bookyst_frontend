@@ -3,7 +3,7 @@ import { MdSpaceDashboard, MdManageHistory } from "react-icons/md";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import Logo from "../../../public/vite.svg";
+import Logo from "/vite.svg";
 
 const Sidbar = () => {
   return (

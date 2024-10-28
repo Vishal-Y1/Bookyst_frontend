@@ -23,19 +23,31 @@ const Home = () => {
     data: books,
   } = useQuery({ queryKey: ["books"], queryFn: getAllBooks });
 
+  // Generate placeholder skeletons while loading
+  const skeletons = Array.from({ length: 8 }).map((_, index) => (
+    <div
+      key={index}
+      className="skeleton-card bg-gray-200 p-4 rounded-lg w-[234px] h-[300px]"
+    >
+      <div className="skeleton-title bg-gray-300 h-6 mb-4 rounded"></div>
+      <div className="skeleton-content bg-gray-300 h-4 mb-2 rounded"></div>
+      <div className="skeleton-content bg-gray-300 h-4 rounded"></div>
+    </div>
+  ));
+
   return (
-    // <div className=" flex min-h-screen justify-center py-5">
-    //   <div className="grid grid-cols-4 mt-10  gap-6">
-    //     {books?.map((b) => (
-    //       <Card key={b._id} book={b} />
-    //     ))}
-    //   </div>
+    // <div className="grid grid-cols-4 gap-6 mt-10">
+    //   {isLoading && <p className="text-red-500 text-3xl">Loading...</p>}
+    //   {books?.map((b) => (
+    //     <Card key={b._id} book={b} />
+    //   ))}
     // </div>
 
     <div className="grid grid-cols-4 gap-6 mt-10">
-      {books?.map((b) => (
-        <Card key={b._id} book={b} />
-      ))}
+      {isLoading ? skeletons : books?.map((b) => <Card key={b._id} book={b} />)}
+      {isError && (
+        <p className="text-red-500 text-xl">Error: {error.message}</p>
+      )}
     </div>
   );
 };

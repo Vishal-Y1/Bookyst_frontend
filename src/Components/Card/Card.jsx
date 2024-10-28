@@ -9,7 +9,7 @@ const Card = ({ book }) => {
         <img
           src={book.image}
           alt={book.title}
-          className="h-[300px] w-[250px] object-cover rounded-md"
+          className="h-[300px] w-[250px] object-fill rounded-md bg-gray-200"
         />
         <div>
           <h3 className="font-semibold capitalize">{book.title}</h3>
