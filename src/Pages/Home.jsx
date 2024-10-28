@@ -27,22 +27,18 @@ const Home = () => {
   const skeletons = Array.from({ length: 8 }).map((_, index) => (
     <div
       key={index}
-      className="skeleton-card bg-gray-200 p-4 rounded-lg w-[234px] h-[300px]"
+      className="skeleton-card bg-gray space-y-3 w-[250px] h-[376px] px-2"
     >
-      <div className="skeleton-title bg-gray-300 h-6 mb-4 rounded"></div>
-      <div className="skeleton-content bg-gray-300 h-4 mb-2 rounded"></div>
-      <div className="skeleton-content bg-gray-300 h-4 rounded"></div>
+      <div className="skeleton-image animate-pulse bg-silver-gradient w-[234px] h-[300px] rounded-md"></div>
+      <div>
+        <div className="skeleton-title animate-pulse bg-silver-gradient h-4 mb-2 rounded"></div>
+        <div className="skeleton-content animate-pulse bg-silver-gradient w-1/2 h-3 mb-2 rounded"></div>
+        <div className="skeleton-content animate-pulse bg-silver-gradient w-1/4 h-3 rounded"></div>
+      </div>
     </div>
   ));
 
   return (
-    // <div className="grid grid-cols-4 gap-6 mt-10">
-    //   {isLoading && <p className="text-red-500 text-3xl">Loading...</p>}
-    //   {books?.map((b) => (
-    //     <Card key={b._id} book={b} />
-    //   ))}
-    // </div>
-
     <div className="grid grid-cols-4 gap-6 mt-10">
       {isLoading ? skeletons : books?.map((b) => <Card key={b._id} book={b} />)}
       {isError && (

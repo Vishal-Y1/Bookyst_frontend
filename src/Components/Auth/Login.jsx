@@ -15,9 +15,11 @@ const Login = () => {
     try {
       // const res = await axios.post("/api/auth/signin", loginData);
       const res = await signIn(loginData);
-      console.log(res);
       if (res) {
         navigate("/");
+        if (res.isAdmin) {
+          navigate("/admin/dashboard");
+        }
       }
     } catch (error) {
       console.log(error);
