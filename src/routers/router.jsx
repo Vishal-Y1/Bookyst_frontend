@@ -23,9 +23,6 @@ const AddNewBook = lazy(() =>
 const ManageBooks = lazy(() =>
   import("../Components/AdminComponents/ManageBooks")
 );
-const AdminLogin = lazy(() =>
-  import("../Components/AdminComponents/AdminLogin")
-);
 
 const router = createBrowserRouter([
   {
