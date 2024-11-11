@@ -1,11 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { search } from "../../api/booksApi";
 import useDebounceSearch from "../../hooks/useDebounce";
 import { IoSearchOutline } from "react-icons/io5";
 
+import AuthContext from "../../Context/AuthContext";
+import Profile from "./Profile";
+
 const Navbar = () => {
+  const { auth } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
+
   const queryClient = useQueryClient();
   const inputRef = useRef(null); // Create a ref to the input element
   const navigate = useNavigate();
@@ -69,6 +75,15 @@ const Navbar = () => {
       document.removeEventListener("keydown", handleGlobalKeyDown);
     };
   }, []);
+
+  const handleLogout = () => {
+    window.localStorage.removeItem("MY_BOOKSTORE_USER");
+    window.location.reload();
+  };
+
+  const toggleProfile = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <div className="flex justify-between px-[15rem] items-center shadow-md h-[79px] fixed left-0 right-0 top-0 z-50 bg-slate-50 p-4  ">
@@ -170,11 +185,25 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <Link to="/auth/signin">
-        <button className="border-2 bg-white border-gray-300 rounded-lg  px-5 py-2 text-sm">
-          Sign in
-        </button>
-      </Link>
+      {auth?.name ? (
+        <div onClick={toggleProfile} className="relative">
+          <div className="inline-flex items-center gap-2">
+            <img
+              src={auth.img}
+              alt=""
+              className="rounded-full size-10 border border-red-500"
+            />
+            <h3 className="text-xl font-semibold">{auth.name}</h3>
+          </div>
+          {isOpen && <Profile logout={handleLogout} />}
+        </div>
+      ) : (
+        <Link to="/auth/signin">
+          <button className="border-2 bg-white border-gray-300 rounded-lg  px-5 py-2 text-sm">
+            Sign in
+          </button>
+        </Link>
+      )}
     </div>
   );
 };

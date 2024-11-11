@@ -7,15 +7,6 @@ import { getAllBooks } from "../api/booksApi";
 const Home = () => {
   const queryClient = useQueryClient();
 
-  // const {
-  //   isLoading,
-  //   isError,
-  //   error,
-  //   data: books,
-  // } = useQuery("books", getAllBooks, {
-  //   select: (books) => books.sort((a, b) => b._id - a._id),
-  // });
-
   const {
     isLoading,
     isError,

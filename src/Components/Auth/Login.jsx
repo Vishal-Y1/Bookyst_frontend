@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { signIn } from "../../api/authApi";
 import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
 
 const Login = () => {
+  const { setAuth, auth } = useContext(AuthContext);
   const [loginData, setloginData] = useState({});
   const navigate = useNavigate();
+
+  console.log(auth);
 
   const handleChange = (e) => {
     setloginData({ ...loginData, [e.target.id]: e.target.value });
@@ -15,16 +19,23 @@ const Login = () => {
     try {
       // const res = await axios.post("/api/auth/signin", loginData);
       const res = await signIn(loginData);
+
       if (res) {
+        setAuth(res);
         navigate("/");
-        if (res.isAdmin) {
-          navigate("/admin/dashboard");
-        }
+        // if (res.isAdmin) {
+        //   navigate("/admin/dashboard");
+        // }
+        window.localStorage.setItem("MY_BOOKSTORE_USER", JSON.stringify(res));
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("MY_BOOKSTORE_USER", JSON.stringify(auth));
+  // }, [handleSubmit]);
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -43,6 +54,7 @@ const Login = () => {
                   Your email
                 </label>
                 <input
+                  autoFocus
                   type="email"
                   name="email"
                   id="email"

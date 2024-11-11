@@ -8,7 +8,7 @@ import Logo from "/vite.svg";
 const Sidbar = () => {
   return (
     <div className="fixed w-20 pt-5 flex flex-col items-center h-full gap-14">
-      <Link to={"/admin/dashboard"}>
+      <Link to={"/"}>
         <img src={Logo} alt="" className="size-10" />
       </Link>
       <Link to={"/admin/dashboard"} className="bg-slate-200 p-3 rounded-lg">

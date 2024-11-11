@@ -1,12 +1,15 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import React, { useContext } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import AuthContext from "../Context/AuthContext";
 
 const AdminRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    return <Navigate to="/admin" />;
-  }
-  return children ? children : <Outlet />;
-};
+  const { auth } = useContext(AuthContext);
+  const location = useLocation();
 
+  return auth?.isAdmin ? (
+    children
+  ) : (
+    <Navigate to={"/"} state={{ from: location }} replace />
+  );
+};
 export default AdminRoute;

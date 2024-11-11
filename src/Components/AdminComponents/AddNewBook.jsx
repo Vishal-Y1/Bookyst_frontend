@@ -136,12 +136,22 @@ const Addbook = () => {
               setFormData({ ...formData, discount: e.target.value })
             }
           />
+          <input
+            type="number"
+            name="stock"
+            id="stock"
+            className="p-3 outline-none min-h-12 "
+            placeholder="Stocks"
+            onChange={(e) =>
+              setFormData({ ...formData, discount: e.target.value })
+            }
+          />
 
           <div className="checkbox flex items-center gap-2">
             <input
               type="checkbox"
-              name="stock"
-              id="stock"
+              name="instock"
+              id="instock"
               // value={inStock}
               onChange={(e) =>
                 setFormData({ ...formData, stock: e.target.checked })

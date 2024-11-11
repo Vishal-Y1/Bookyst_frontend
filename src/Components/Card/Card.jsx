@@ -1,13 +1,15 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/imgSkel.webp";
 
 const Card = ({ book }) => {
   return (
     <Link to={`/books/${book._id}`} key={book._id} className="w-[250px]">
       <div className="space-y-3 text-black hover:scale-[1.03] transition-all ease-in-out duration-300 px-2">
         <img
-          src={book.image}
+          // src={book.image}
+          src={book.image === "" ? Logo : book.image}
           alt={book.title}
           className="h-[300px] w-[250px] object-fill rounded-md bg-gray-200"
         />

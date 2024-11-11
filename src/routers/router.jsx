@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loader from "../Components/Loader";
+import AdminRoute from "./AdminRoutes";
 
 //*Main Imports
 const App = lazy(() => import("../App"));
@@ -71,14 +72,12 @@ const router = createBrowserRouter([
     path: "/admin",
     element: (
       <Suspense fallback={<Loader title={"ADMIN"} />}>
-        <AdminDashboardPage />
+        <AdminRoute>
+          <AdminDashboardPage />
+        </AdminRoute>
       </Suspense>
     ),
     children: [
-      {
-        path: "/admin",
-        element: <AdminLogin />,
-      },
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
