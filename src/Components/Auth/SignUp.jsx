@@ -17,7 +17,7 @@ const SignUp = () => {
       // const res = await axios.post("/api/auth/signin", loginData);
       const res = await signUp(signUpData);
       if (res) {
-        navigate("/auth");
+        navigate("/auth/signin");
       }
     } catch (error) {
       console.log(error);

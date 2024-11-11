@@ -34,6 +34,17 @@ export default {
         "silver-gradient": "linear-gradient(90deg, #C0C0C0, #D3D3D3, #E5E5E5)",
       },
     },
+    screens: {
+      usm: "543px",
+      // => @media (min-width: 640px) { ... }
+      sm: "640px",
+      mdl: "846px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1440px",
+      "2xl": "1536px",
+    },
   },
   plugins: [
     require("tailwindcss/plugin")(({ addVariant }) => {

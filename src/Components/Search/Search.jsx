@@ -24,15 +24,7 @@ const Search = () => {
   });
 
   return (
-    // <div className="flex min-h-screen justify-center  py-5">
-    //   <div className="grid grid-cols-4 mt-10  gap-6">
-    //     {books?.map((book) => (
-    //       <Card key={book._id} book={book} />
-    //     ))}
-    //   </div>
-    // </div>
-
-    <div className="grid grid-cols-4 mt-10  gap-6">
+    <div className="grid grid-cols-1 usm:grid-cols-2 mdl:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
       {books?.map((book) => (
         <Card key={book._id} book={book} />
       ))}

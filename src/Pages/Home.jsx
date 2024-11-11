@@ -30,7 +30,7 @@ const Home = () => {
   ));
 
   return (
-    <div className="grid grid-cols-4 gap-6 mt-10">
+    <div className="grid grid-cols-1 usm:grid-cols-2 mdl:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
       {isLoading ? skeletons : books?.map((b) => <Card key={b._id} book={b} />)}
       {isError && (
         <p className="text-red-500 text-xl">Error: {error.message}</p>

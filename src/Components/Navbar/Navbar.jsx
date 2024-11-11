@@ -4,6 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { search } from "../../api/booksApi";
 import useDebounceSearch from "../../hooks/useDebounce";
 import { IoSearchOutline } from "react-icons/io5";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 import AuthContext from "../../Context/AuthContext";
 import Profile from "./Profile";
@@ -86,9 +87,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between px-[15rem] items-center shadow-md h-[79px] fixed left-0 right-0 top-0 z-50 bg-slate-50 p-4  ">
+    <div className="flex justify-between xxl:px-40 2xl:px-60 items-center shadow-md h-[79px] fixed left-0 right-0 top-0 z-50 bg-slate-50 p-4  ">
       <Link to="/">
-        <h1 className="font-bold text-xl">Vishal Yadav - Booksyst</h1>
+        <h1 className="font-bold hidden md:block md:text-lg lg:text-xl">
+          Vishal Yadav - Booksyst
+        </h1>
       </Link>
       <div className="relative font-semibold">
         <form
@@ -103,9 +106,9 @@ const Navbar = () => {
             onBlur={() => setTimeout(() => setIsFocused(false), 100)}
             type="text"
             placeholder="Search for Book or Author Name"
-            className={`py-2 px-4 h-11 rounded-l-full focus:ring-2 focus:ring-purple-500  ${
+            className={`py-2 px-4 rounded-l-full focus:ring-2 focus:ring-purple-500  ${
               isFocused && "pl-10"
-            } focus:outline-none outline-none w-[30rem]`}
+            } focus:outline-none outline-none w-[10rem] h-9 md:w-[12rem] lg:w-[20rem] lg:h-10 xl:h-11 xl:w-[30rem]`}
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -119,17 +122,6 @@ const Navbar = () => {
               isDataAvailable && "bg-white"
             } text-black py-3 rounded-xl z-50 `}
           >
-            {/* {books?.map((book) => (
-              <li
-                onMouseDown={() => handleClickTest(book)}
-                key={book._id}
-                className="inline-flex items-center gap-x-3 py-2 px-4 bg-red-500 cursor-pointer hover:bg-slate-100"
-              >
-                <IoSearchOutline className="size-5 " />
-                <p>{book.title}</p>
-              </li>
-            ))} */}
-
             {books?.map((book) => {
               const lowerCaseQuery = q?.toLowerCase().trim() || "";
 
@@ -186,20 +178,30 @@ const Navbar = () => {
         )}
       </div>
       {auth?.name ? (
-        <div onClick={toggleProfile} className="relative">
-          <div className="inline-flex items-center gap-2">
+        <div
+          onClick={toggleProfile}
+          className="relative cursor-pointer select-none"
+        >
+          <div className="inline-flex items-center justify-center gap-2">
             <img
               src={auth.img}
               alt=""
-              className="rounded-full size-10 border border-red-500"
+              className="rounded-full size-10 border shadow-xl"
             />
-            <h3 className="text-xl font-semibold">{auth.name}</h3>
+            <h3 className="text-xl hidden md:block font-semibold">
+              {auth.name}
+            </h3>
+            <TiArrowSortedDown
+              className={`size-5 hidden md:block text-gray-500 transition-all ease-in-out duration-300 ${
+                isOpen && "rotate-180"
+              }`}
+            />
           </div>
           {isOpen && <Profile logout={handleLogout} />}
         </div>
       ) : (
         <Link to="/auth/signin">
-          <button className="border-2 bg-white border-gray-300 rounded-lg  px-5 py-2 text-sm">
+          <button className="border-2 bg-white border-gray-300 rounded-lg px-3 py-[6px]  md:px-5 md:py-2 text-sm">
             Sign in
           </button>
         </Link>
